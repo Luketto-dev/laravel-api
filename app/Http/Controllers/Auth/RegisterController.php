@@ -7,6 +7,7 @@ use App\Mail\NewRegistrationMail;
 use App\Post;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\UserDetail;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -73,6 +74,9 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
+        $user->details = new UserDetail();
+        $user->details->user_id = $user->id;
+        $user->details->save();
         
         Mail::to($user->email)->send(new NewRegistrationMail($user));
 

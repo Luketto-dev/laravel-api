@@ -161,6 +161,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $slug)
     {
+        
         // validare i dati ricevuti
         $validatedData = $request->validate([
             "title" => "required|min:10",

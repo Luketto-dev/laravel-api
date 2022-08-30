@@ -25,18 +25,7 @@
             <form action="{{ route('admin.posts.update', ['post' => $post->slug]) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <div class="d-flex align-items-center">
-                    @if($post->cover_img)
-                    <img class="img-thumbnail mr-3" src="{{asset('storage/' . $post->cover_img)}}" style="width: 125px" alt="">
-                    @endif
-                    <div class="custom-file w-50">
-                        <label class="custom-file-label" for="cover_img_file">Aggiungi immagine di copertina</label>
-                        <input name="cover_img" type="file" class="custom-file-input" id="cover_img_file">
-                        @error('cover_img')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
+                <file-input name="cover_img"></file-input>
                 
 
                 <div class="form-group">

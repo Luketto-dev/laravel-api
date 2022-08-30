@@ -23,6 +23,7 @@
             </div>
             <form action="{{ route('admin.posts.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
+                <file-input name="input"></file-input>
                 <div class="form-group">
                     <label>Titolo</label>
                     <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Inserisci il titolo" value="{{ old('title') }}" required>
