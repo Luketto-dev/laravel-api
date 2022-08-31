@@ -15,12 +15,12 @@
                       <h3>{{post.title}}</h3>
                     </div>
                     <div class="post_image">
-                        <img :src="'/storage/' + post.cover_img" alt="Cover image of post 1">
+                        <img :src="post.cover_img" alt="Cover image of post 1">
                     </div>
                   </div>
                 </div>
                 <div class="post_text">
-                  <p v-html="post.content"></p>
+                  <p v-html="post.content + '...'"></p>
                 </div>
               </div>
             </div>

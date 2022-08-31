@@ -10995,7 +10995,7 @@ a.text-dark:focus {
 
 .post_image img {
   width: 100%;
-  aspect-ratio: 16/7;
+  aspect-ratio: 16/9;
   transition: transform 0.5s;
 }
 

@@ -2,7 +2,7 @@
     <div>  
         <Navbar></Navbar>
         <div class="container">
-            <h1>Hello vuejs {{message}}</h1>
+            <h1>{{message}}</h1>
         </div>
         <PostsList></PostsList>
     </div>     
@@ -15,7 +15,7 @@ export default {
     components: { Navbar, PostsList },
     data() {
         return {
-            message: "ciao ciao con le mani ciao ciao"
+            message: "Hello Vuejs"
         };
     },
     components: { Navbar, PostsList }

@@ -1921,7 +1921,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      message: "ciao ciao con le mani ciao ciao"
+      message: "Hello Vuejs"
     };
   }
 }, "components", {
@@ -1995,7 +1995,7 @@ var render = function render() {
 
   return _c("div", [_c("Navbar"), _vm._v(" "), _c("div", {
     staticClass: "container"
-  }, [_c("h1", [_vm._v("Hello vuejs " + _vm._s(_vm.message))])]), _vm._v(" "), _c("PostsList")], 1);
+  }, [_c("h1", [_vm._v(_vm._s(_vm.message))])]), _vm._v(" "), _c("PostsList")], 1);
 };
 
 var staticRenderFns = [];
@@ -2103,14 +2103,14 @@ var render = function render() {
       staticClass: "post_image"
     }, [_c("img", {
       attrs: {
-        src: "/storage/" + post.cover_img,
+        src: post.cover_img,
         alt: "Cover image of post 1"
       }
     })])])]), _vm._v(" "), _c("div", {
       staticClass: "post_text"
     }, [_c("p", {
       domProps: {
-        innerHTML: _vm._s(post.content)
+        innerHTML: _vm._s(post.content + "...")
       }
     })])])])])]);
   }), 0)]);
