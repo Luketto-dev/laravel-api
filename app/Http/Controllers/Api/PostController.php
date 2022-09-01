@@ -11,10 +11,10 @@ class PostController extends Controller
 {
     public function index(){
 
-        $post = Post::all();
+        $post = Post::paginate(5);
 
         // ciclo sull array dei post
-        $post = $post->map(function ($post){
+        $post->map(function ($post){
             
             $post->content = Str::substr($post->content, 0, 375);
             // se cover_img esiste

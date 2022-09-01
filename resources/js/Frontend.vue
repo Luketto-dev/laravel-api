@@ -4,7 +4,9 @@
         <div class="container">
             <h1>{{message}}</h1>
         </div>
-        <PostsList></PostsList>
+        <main class="container py-4">
+            <PostsList></PostsList>
+        </main>
     </div>     
 </template>
 

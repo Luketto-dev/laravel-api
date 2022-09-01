@@ -98,11 +98,15 @@ class PostController extends Controller
             "title" => "required|min:10",
             "content" => "required|min:10",
             "category_id" => "nullable|exists:categories,id",
-            "tags" => "nullable|exists:tags,id"
+            "tags" => "nullable|exists:tags,id",
+            "cover_img" => "required|mimes:jpeg,png,jpg,gif,svg|max:2048"
         ]);
 
+        $cover_img = Storage::put("/post_covers", $validatedData["cover_img"]);
         // salvare a db i dati
         $post = new Post();
+
+        $post->cover_img = $cover_img;
 
         $post-> fill($validatedData);
 

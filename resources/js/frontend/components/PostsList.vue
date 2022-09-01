@@ -1,8 +1,7 @@
 <template>
-    <main class="container pb-5">
-
+    
+    <div>
       <div class="row ">
-
         <!-- creiamo una col solo per limitare la larghezza di una singola card -->
         <div class="col-6 mb-3" v-for="post in posts" :key="post.id">
           <!-- contenitore dei singoli post -->
@@ -24,27 +23,38 @@
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
-    </main>
+      <Pagination :current-page="paginationData.current_page"
+        :next-page="paginationData.current_page + 1"
+        :total-pages="paginationData.last_page"
+        @changePage="onChangePage"
+        ></Pagination>
+    </div>
 </template>
 
 <script>
-  import axios from "axios"
+import axios from "axios"
+import Pagination from "./Pagination.vue"
 export default {
+    components : {Pagination},
     data(){
         return{
             posts: [],
+            paginationData : {},
         }
     },
     methods: {
-      fetchPosts(){
-        axios.get("/api/posts")
+      fetchPosts(newPage = 1){
+        axios.get("/api/posts?page=" + newPage)
         .then((resp) =>{
-          this.posts = resp.data;
+          this.posts = resp.data.data;
+          this.paginationData = resp.data
         })
+      },
+      onChangePage(newPage){
+        this.fetchPosts(newPage)
       }
     },
     mounted(){
